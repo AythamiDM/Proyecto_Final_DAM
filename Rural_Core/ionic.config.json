@@ -1,0 +1,7 @@
+{
+  "name": "Rural_Core",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
