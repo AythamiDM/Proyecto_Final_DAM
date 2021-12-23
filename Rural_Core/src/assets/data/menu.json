@@ -1,0 +1,12 @@
+[
+    {
+        "icon": "home",
+        "name": "Inicio",
+        "redirectTo": "tabs/tab2"
+    },
+    {
+        "icon": "storefront",
+        "name": "Mi Negocio",
+        "redirectTo": "tabs/tab2"
+    }
+]
