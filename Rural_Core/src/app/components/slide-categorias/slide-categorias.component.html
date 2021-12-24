@@ -1,0 +1,17 @@
+<ion-slides mode="ios" scrollbar="ios" [options]='slideOpts'>
+
+  <ion-slide *ngFor="let categoria of categorias">
+    <ion-card class="btnCategorias">
+      <ion-card-content>
+        {{categoria}}
+      </ion-card-content>
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide class="btnCategorias">
+    <ion-button class="btn-mas" expand="full" size="large" shape="round" routerLink="/tabs/tab3">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
+  </ion-slide>
+
+</ion-slides>

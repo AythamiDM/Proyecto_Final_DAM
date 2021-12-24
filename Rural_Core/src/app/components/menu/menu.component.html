@@ -1,24 +1,30 @@
-<ion-menu side="start" contentId="mainMenu" type="overlay">
+<ion-split-pane contentId="mainMenu" when="md">
 
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-title size="small" class="ion-text-center">Rural Core</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-menu side="start" contentId="mainMenu" type="overlay">
 
-  <ion-content>
-    <ion-list>
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title size="small" class="ion-text-center">Rural Core</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-      <ion-menu-toggle *ngFor="let opcion of menuOpts | async" autoHide=false>
+    <ion-content>
+      <ion-list>
 
-        <ion-item [routerLink]="opcion.redirectTo" detail>
-          <ion-icon [name]="opcion.icon" slot="start" color="primary"></ion-icon>
-          <ion-label>{{opcion.name}}</ion-label>
-        </ion-item>
+        <ion-menu-toggle *ngFor="let opcion of menuOpts | async" autoHide=false>
 
-      </ion-menu-toggle>
+          <ion-item [routerLink]="opcion.redirectTo" detail>
+            <ion-icon [name]="opcion.icon" slot="start" color="primary"></ion-icon>
+            <ion-label>{{opcion.name}}</ion-label>
+          </ion-item>
 
-    </ion-list>
-  </ion-content>
+        </ion-menu-toggle>
 
-</ion-menu>
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <ion-router-outlet id="mainMenu"></ion-router-outlet>
+
+</ion-split-pane>
