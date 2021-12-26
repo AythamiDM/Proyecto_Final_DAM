@@ -4,13 +4,17 @@ import { IonicModule } from '@ionic/angular';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { SlideCategoriasComponent } from './slide-categorias/slide-categorias.component';
+import { ComercioComponent } from './comercio/comercio.component';
+import { ListaComerciosComponent } from './lista-comercios/lista-comercios.component';
 
 
 
 @NgModule({
   declarations: [
     MenuComponent,
-    SlideCategoriasComponent
+    SlideCategoriasComponent,
+    ComercioComponent,
+    ListaComerciosComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +23,9 @@ import { SlideCategoriasComponent } from './slide-categorias/slide-categorias.co
   ],
   exports: [
     MenuComponent,
-    SlideCategoriasComponent
+    SlideCategoriasComponent,
+    ComercioComponent,
+    ListaComerciosComponent
   ]
 })
 export class ComponentsModule { }

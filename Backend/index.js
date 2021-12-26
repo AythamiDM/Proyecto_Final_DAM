@@ -8,7 +8,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-    origin: "http://localhost:8081"
+    origin: "http://localhost:8100"
 };
 
 app.use(cors(corsOptions));
@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./models");
 
 //Usando el force: true borraremos las tablas existentes y las creamos de nuevo
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     console.log("Drop and re-sync data base")
 })
 
