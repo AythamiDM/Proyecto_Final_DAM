@@ -3,7 +3,7 @@
   <ion-menu side="start" contentId="mainMenu" type="overlay">
 
     <ion-header>
-      <ion-toolbar color="primary">
+      <ion-toolbar color="verdeOscuro">
         <ion-title size="small" class="ion-text-center">Rural Core</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -14,7 +14,7 @@
         <ion-menu-toggle *ngFor="let opcion of menuOpts | async" autoHide=false>
 
           <ion-item [routerLink]="opcion.redirectTo" detail>
-            <ion-icon [name]="opcion.icon" slot="start" color="primary"></ion-icon>
+            <ion-icon [name]="opcion.icon" slot="start" color="verdeOscuro"></ion-icon>
             <ion-label>{{opcion.name}}</ion-label>
           </ion-item>
 

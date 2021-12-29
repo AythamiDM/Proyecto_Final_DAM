@@ -4,6 +4,13 @@ export interface menuOpts {
   redirectTo: string;
 }
 
+export interface Categorias {
+  id:        number;
+  nombre:    string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 export interface Comercios {
   id:        number;
   nombre:    string;

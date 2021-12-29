@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listaComercios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <app-lista-comercios [comercios]="listado"></app-lista-comercios>
+
+  <ion-button (click)="salirModal()" expand="block" fill="solid" shape="round">
+    Click me
+  </ion-button>
+
+</ion-content>

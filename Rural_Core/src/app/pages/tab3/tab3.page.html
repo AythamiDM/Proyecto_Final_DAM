@@ -1,15 +1,29 @@
 <ion-header mode="ios" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button color="primary"></ion-menu-button>
+      <ion-menu-button color="verdeOscuro"></ion-menu-button>
     </ion-buttons>
 
-    <ion-title color="primary">
+    <ion-title color="verdeOscuro">
       Categorías
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" *ngFor="let categoria of categorias">
+
+        <ion-button (click)="findByCategory(categoria.nombre)" expand="block" fill="solid" shape="round"
+          color="verdeOscuro">
+          {{categoria.nombre}}
+        </ion-button>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

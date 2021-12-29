@@ -1,6 +1,6 @@
 //Creamos el modelo de comercio
 module.exports = (sequelize, Sequelize) => {
-    const Comercio = sequelize.define("comercio", {
+    const Comercio = sequelize.define("comercios", {
         nombre: {
             type: Sequelize.STRING
         },
@@ -21,8 +21,11 @@ module.exports = (sequelize, Sequelize) => {
         },
         categoria: {
             type: Sequelize.STRING
+        },
+        descripcion: {
+            type: Sequelize.STRING
         }
     });
-    
+
     return Comercio;
 };

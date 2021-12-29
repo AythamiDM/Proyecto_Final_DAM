@@ -10,8 +10,11 @@ module.exports = app => {
     //Obtener todos los comercios
     router.get("/", comercios.findAll);
 
-    //Obtener un comercio por las categorias a las que pertenece
-    router.get("/:categoria", comercios.findByCategory);
+    //Obtener comercio por la categoria a la que pertenece
+    router.get("/:categoria", comercios.findAll);
+
+    //Obtener un comercio por su ID
+    router.get("/:id", comercios.findOne);
 
     //Actualizar los datos de un comercio por su ID
     router.put("/:id", comercios.update);

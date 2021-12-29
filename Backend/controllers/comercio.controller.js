@@ -21,7 +21,8 @@ exports.create = (req, res) => {
         email: req.body.email,
         password: req.body.password,
         cif: req.body.cif,
-        categoria: req.body.categoria
+        categoria: req.body.categoria,
+        descripcion: req.body.descripcion
     };
 
     //Guardamos el comercio
@@ -36,8 +37,11 @@ exports.create = (req, res) => {
 
 
 //Obtener todos los comercios de la base de datos
+//u obtener los que pertenecen a una categoria
 exports.findAll = (req, res) => {
-    Comercio.findAll().then(data => {
+    const categoria = req.query.categoria;
+    var condicion = categoria ? { categoria: { [Op.like]: `%${categoria}%` } } : null;
+    Comercio.findAll({ where: condicion }).then(data => {
         res.send(data);
     }).catch(err => {
         res.status(500).send({
@@ -47,17 +51,21 @@ exports.findAll = (req, res) => {
 };
 
 
-//Obtener los comercios que pertenecen a una categoría
-exports.findByCategory = (req, res) => {
-    const categoria = req.query.categoria;
-    var condicion = categoria ? { categoria: { [Op.like]: `%${categoria}%` } } : null;
-
-    Comercio.findByCategory({ where: condicion })
+//Obtener comercio por ID
+exports.findOne = (req, res) => {
+    const id = req.params.id;
+    Comercio.findByPk(id)
         .then(data => {
-            res.send(data);
+            if (data) {
+                res.send(data);
+            } else {
+                res.status(404).send({
+                    message: `Cannot find commerces with id=${id}`
+                });
+            }
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while retrieving commerces"
+                message: err.message || "Error retrieving commerces with id=" + id
             });
         });
 };
