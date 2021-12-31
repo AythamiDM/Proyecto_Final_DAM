@@ -9,7 +9,7 @@ export const environment = {
     appId: "1:460378670468:web:44cd6360ad2e5d5f4409d1",
     measurementId: "G-3G84E8JHKS"
   },
-  endPoint: 'http://localhost:8080/api',
+  api: 'http://localhost:8080/api',
   comercios: '/comercios',
   categorias: '/categorias'
 };

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComerciosService } from 'src/app/services/comercios.service';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { Comercios } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-tab2',
@@ -11,7 +12,7 @@ export class Tab2Page implements OnInit {
 
   @ViewChild(IonInfiniteScroll, { static: true }) infiniteScroll: IonInfiniteScroll;
 
-  comercios: any = [];
+  comercios: Comercios[] = [];
 
   constructor(private comService: ComerciosService) { }
 
@@ -21,7 +22,7 @@ export class Tab2Page implements OnInit {
   }
 
 
-  getAllCommerce() {
+  private getAllCommerce() {
     this.comService.getComercios()
       .subscribe(respuesta => {
         this.comercios = respuesta;

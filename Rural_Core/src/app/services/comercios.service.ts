@@ -1,28 +1,41 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-// import { Comercios } from '../interfaces/interfaces';
+// import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Comercios } from '../interfaces/interfaces';
+
+const api = environment.api;
+const endPoint = environment.comercios;
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ComerciosService {
-
-  private endPoint = 'http://localhost:8080/api/comercios';
-
-  // private comercios: Comercios = {};
 
   constructor(private http: HttpClient) { }
 
-  // private executeQuery<T>(endpoint: string) {
-  //   return this.http.get<T>(`${this.endPoint}`);
-  // }
+
+  private executeQuery<T>(peticion: string) {
+    const query = api + endPoint + peticion;
+    return this.http.get<T>(query);
+  }
+
 
   getComercios() {
-    return this.http.get(this.endPoint);
+    const query = api + endPoint;
+    return this.http.get<Comercios[]>(query);
   }
 
+
   getCommerceByCategory(categoria: string) {
-    const query = this.endPoint + '?categoria=' + categoria;
-    return this.http.get(query);
+    const query = '?categoria=' + categoria;
+    return this.executeQuery<Comercios[]>(query);
   }
+
+
+  // getCommerceByCategory(categoria: string): Observable<Comercios[]> {
+  //   const query = '?categoria=' + categoria;
+  //   return this.executeQuery<Comercios[]>(query);
+  // }
 }

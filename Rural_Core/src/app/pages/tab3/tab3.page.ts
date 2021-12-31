@@ -1,43 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonAccordionGroup } from '@ionic/angular';
+import { Categorias, Comercios } from 'src/app/interfaces/interfaces';
 import { CategoriasService } from 'src/app/services/categorias.service';
-import { ListaComerciosPage } from '../lista-comercios/lista-comercios.page';
+import { ComerciosService } from 'src/app/services/comercios.service';
 
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
+
 export class Tab3Page implements OnInit {
 
-  categorias: any = [];
+  @ViewChild(IonAccordionGroup, { static: true }) accordionGroup: IonAccordionGroup;
 
-  constructor(private catService: CategoriasService, private modalCtrl: ModalController) { }
+  categorias: Categorias[] = [];
+  comercios: Comercios[] = [];
+
+  constructor(
+    private catService: CategoriasService,
+    private comService: ComerciosService
+  ) { }
+
 
   ngOnInit(): void {
-    this.getAllCategories();
+    this.AllCategories();
+    this.accordionGroup.value = 'categorias';
   }
 
-  getAllCategories() {
+
+  private AllCategories() {
     this.catService.getCategorias()
       .subscribe(respuesta => {
         this.categorias = respuesta;
       })
   }
 
-  async findByCategory(categoria: string) {
-    console.log('categoria:', categoria);
-    const modal = await this.modalCtrl.create(
-      {
-        component: ListaComerciosPage,
-        componentProps:
-        {
-          nombre: categoria
-        }
+
+  private CommerceByCategory(categoria: string) {
+    this.comService.getCommerceByCategory(categoria)
+      .subscribe(respuesta => {
+        this.comercios = respuesta;
+        this.estadoAcordeon();
+        console.log('Comercios: ', this.comercios);
       });
+  }
 
-    await modal.present();
-
+  private estadoAcordeon() {
+    if (this.comercios.length === 0) {
+      this.accordionGroup.value = 'categorias';
+    } else {
+      this.accordionGroup.value = undefined;
+    }
   }
 
 }

@@ -12,14 +12,15 @@ export interface Categorias {
 }
 
 export interface Comercios {
-  id:        number;
-  nombre:    string;
-  direccion: string;
-  telefono:  number;
-  email:     string;
-  password:  string;
-  cif:       string;
-  categoria: string;
-  createdAt: Date;
-  updatedAt: Date;
+  id:          number;
+  nombre:      string;
+  direccion:   string;
+  telefono:    number;
+  email:       string;
+  password:    string;
+  cif:         string;
+  categoria:   string;
+  descripcion: string;
+  createdAt:   Date;
+  updatedAt:   Date;
 }

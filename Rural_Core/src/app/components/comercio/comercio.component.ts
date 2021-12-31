@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-// import { Comercios } from 'src/app/interfaces/interfaces';
+import { Comercios } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-comercio',
@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ComercioComponent implements OnInit {
 
-  @Input() comercio: any;
+  @Input() comercio: Comercios[] = [];
   @Input() index: number;
 
   constructor() { }
