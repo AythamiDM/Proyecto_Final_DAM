@@ -7,6 +7,6 @@
     {
         "icon": "storefront",
         "name": "Mi Negocio",
-        "redirectTo": "tabs/tab2"
+        "redirectTo": "/login"
     }
 ]

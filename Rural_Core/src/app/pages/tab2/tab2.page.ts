@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComerciosService } from 'src/app/services/comercios.service';
-import { IonInfiniteScroll } from '@ionic/angular';
+// import { IonInfiniteScroll } from '@ionic/angular';
 import { Comercios } from 'src/app/interfaces/interfaces';
 
 @Component({
@@ -10,7 +10,7 @@ import { Comercios } from 'src/app/interfaces/interfaces';
 })
 export class Tab2Page implements OnInit {
 
-  @ViewChild(IonInfiniteScroll, { static: true }) infiniteScroll: IonInfiniteScroll;
+  // @ViewChild(IonInfiniteScroll, { static: true }) infiniteScroll: IonInfiniteScroll;
 
   comercios: Comercios[] = [];
 
@@ -41,5 +41,9 @@ export class Tab2Page implements OnInit {
       }
     }, 500);
   }
+
+  // toggleInfiniteScroll() {
+  //   this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+  // }
 
 }

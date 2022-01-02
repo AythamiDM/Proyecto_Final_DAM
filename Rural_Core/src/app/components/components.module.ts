@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SlideCategoriasComponent } from './slide-categorias/slide-categorias.component';
 import { ComercioComponent } from './comercio/comercio.component';
 import { ListaComerciosComponent } from './lista-comercios/lista-comercios.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -14,7 +15,8 @@ import { ListaComerciosComponent } from './lista-comercios/lista-comercios.compo
     MenuComponent,
     SlideCategoriasComponent,
     ComercioComponent,
-    ListaComerciosComponent
+    ListaComerciosComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { ListaComerciosComponent } from './lista-comercios/lista-comercios.compo
     MenuComponent,
     SlideCategoriasComponent,
     ComercioComponent,
-    ListaComerciosComponent
+    ListaComerciosComponent,
+    HeaderComponent
   ]
 })
 export class ComponentsModule { }
