@@ -7,12 +7,12 @@ export interface menuOpts {
 export interface Categorias {
   id:        number;
   nombre:    string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface Comercios {
-  id:          number;
+  id?:          number;
   nombre:      string;
   direccion:   string;
   telefono:    number;
@@ -21,6 +21,6 @@ export interface Comercios {
   cif:         string;
   categoria:   string;
   descripcion: string;
-  createdAt:   Date;
-  updatedAt:   Date;
+  createdAt?:   Date;
+  updatedAt?:   Date;
 }

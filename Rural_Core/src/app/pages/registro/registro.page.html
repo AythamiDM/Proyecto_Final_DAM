@@ -1,9 +1,143 @@
-<ion-header>
+<ion-header mode="ios" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>registro</ion-title>
+    <ion-title color="verdeOscuro">Nuevo comercio</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="Atrás" defaultHref="/" routerDirection="back" color="verdeOscuro"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" *ngIf="formulario.invalid">
+      <ion-icon color="danger" slot="icon-only" name="close-circle"></ion-icon>      
+    </ion-buttons>
+
+    <ion-buttons slot="end" *ngIf="formulario.valid">
+      <ion-icon color="success" slot="icon-only" name="checkmark-circle"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+
+<ion-content class="ion-padding">
+  <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate(formulario)">
+
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label color="verdeOscuro">Datos generales</ion-label>
+      </ion-item-divider>
+
+
+      <ion-item lines="none">
+        <ion-label position="floating" color="verdeOscuro">Nombre:</ion-label>
+        <ion-input type="text"
+                   placeholder="Nombre de tu comercio"
+                   name="nombre"
+                   [(ngModel)]="comercio.nombre"
+                   required>
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <ion-label position="floating" color="verdeOscuro">Dirección:</ion-label>
+        <ion-input type="text"
+                   placeholder="Dirección de tu comercio"
+                   name="direccion"
+                   [(ngModel)]="comercio.direccion"
+                   required>
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <ion-label position="floating" color="verdeOscuro">Teléfono:</ion-label>
+        <ion-input type="tel"
+                   placeholder="Teléfono de tu comercio"
+                   name="telefono"
+                   [(ngModel)]="comercio.telefono"
+                   required>
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <ion-label position="floating" color="verdeOscuro">CIF:</ion-label>
+        <ion-input type="text"
+                   required placeholder="CIF de tu comercio"
+                   name="cif"
+                   [(ngModel)]="comercio.cif">
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <ion-label color="verdeOscuro">Categoría:</ion-label>
+        <ion-select okText="Confirmar"
+                    cancelText="Cancelar"
+                    placeholder="selecciona una"
+                    name="categoria"
+                    [(ngModel)]="comercio.categoria">
+          <ion-select-option *ngFor="let categoria of categorias">{{categoria.nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <ion-label position="stacked" color="verdeOscuro">Descripción (opcional)</ion-label>
+        <ion-textarea inputmode="text"
+                      rows="8"
+                      placeholder="Describe tu comercio, prodctos..."
+                      name="descripcion"
+                      [(ngModel)]="comercio.descripcion">
+        </ion-textarea>
+      </ion-item>
+
+
+      <ion-item-divider>
+        <ion-label color="verdeOscuro">Datos de inicio de sesión</ion-label>
+      </ion-item-divider>
+
+
+      <ion-item lines="none">
+        <ion-label position="floating" color="verdeOscuro">Email:</ion-label>
+        <ion-input type="email"
+                   placeholder="Email de tu comercio"
+                   name="email"
+                   [(ngModel)]="comercio.email"
+                   pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                   required>
+        </ion-input>
+      </ion-item>
+
+
+      <ion-item lines="none">
+        <ion-label position="floating" color="verdeOscuro">Contraseña:</ion-label>
+        <ion-input type="password"
+                   name="password"
+                   [(ngModel)]="comercio.password"
+                  required>
+        </ion-input>
+      </ion-item>
+    </ion-item-group>
+
+  </form>
 </ion-content>
+
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onSubmitTemplate()"
+                  fill="solid"
+                  color="verdeOscuro"
+                  type="submit"
+                  [disabled]="formulario.invalid">
+        Aceptar
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button fill="solid" color="verdeOscuro" type="reset">
+        Caneclar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

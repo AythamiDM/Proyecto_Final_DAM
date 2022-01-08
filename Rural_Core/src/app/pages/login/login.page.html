@@ -2,17 +2,16 @@
   <ion-toolbar>
 
     <ion-buttons slot="start">
-      <ion-back-button text="Atrás" defaultHref="/" color="verdeOscuro"></ion-back-button>
+      <ion-back-button text="Atrás" defaultHref="/" routerDirection="back" color="verdeOscuro"></ion-back-button>
     </ion-buttons>
 
     <ion-title color="verdeOscuro">Mi Negocio</ion-title>
 
     <ion-buttons slot="end">
-      <ion-button (click)="presentAlertPrompt()" color="verdeOscuro">
+      <ion-button routerLink="/registro" color="verdeOscuro">
         <ion-icon slot="icon-only" name="person-add-sharp"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <!-- routerLink="/registro" -->
   </ion-toolbar>
 </ion-header>
 
