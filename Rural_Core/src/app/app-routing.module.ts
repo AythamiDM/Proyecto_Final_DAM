@@ -13,7 +13,16 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then(m => m.RegistroPageModule)
+  },
+  {
+    path: 'camara',
+    loadChildren: () => import('./pages/camara/camara.module').then(m => m.CamaraPageModule)
+  },  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   }
+
+
 
 
 ];

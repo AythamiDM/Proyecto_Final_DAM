@@ -37,7 +37,7 @@ export class Tab3Page implements OnInit {
   }
 
 
-  private CommerceByCategory(categoria: string) {
+  CommerceByCategory(categoria: string) {
     this.comService.getCommerceByCategory(categoria)
       .subscribe(respuesta => {
         this.comercios = respuesta;
@@ -46,7 +46,7 @@ export class Tab3Page implements OnInit {
       });
   }
 
-  private estadoAcordeon() {
+  estadoAcordeon() {
     if (this.comercios.length === 0) {
       this.accordionGroup.value = 'categorias';
     } else {

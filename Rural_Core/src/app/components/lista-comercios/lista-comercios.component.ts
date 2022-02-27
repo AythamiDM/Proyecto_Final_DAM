@@ -9,7 +9,6 @@ import { Comercios } from 'src/app/interfaces/interfaces';
 export class ListaComerciosComponent implements OnInit {
 
   @Input() comercios: Comercios[] = [];
-
   constructor() { }
 
   ngOnInit() { }

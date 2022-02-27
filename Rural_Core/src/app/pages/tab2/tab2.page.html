@@ -1,12 +1,12 @@
-<app-header titulo="Rural Core" imagen="true"></app-header>
+<app-header titulo="Rural Core" [imagen]="true"></app-header>
 
 <ion-content [fullscreen]="true">
 
   <app-slide-categorias></app-slide-categorias>
   <app-lista-comercios [comercios]="comercios"></app-lista-comercios>
 
-  <ion-infinite-scroll threshold="25%" position="bottom" (ionInfinite)="loadData($event)">
+  <!-- <ion-infinite-scroll threshold="25%" position="bottom" (ionInfinite)="loadData()">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando..."></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  </ion-infinite-scroll> -->
 
 </ion-content>

@@ -1,7 +1,7 @@
-<ion-card>
+<ion-card *ngFor="let item of comercio; let i = index">
   <ion-grid fixed>
     <ion-row class="ion-align-items-center">
-      <ion-card-title class="ion-margin" color="verdeOscuro">{{index+1}}. {{comercio.nombre}}</ion-card-title>
+      <ion-card-title class="ion-margin" color="verdeOscuro">{{i+1}}. {{item.nombre}}</ion-card-title>
 
       <ion-col align="right">
         <ion-button (click)="openMenu()" fill="clear">
@@ -18,7 +18,7 @@
       <ion-col size="12">
 
         <ion-chip [disabled]="true" color="verdeFluo">
-          <ion-label>{{comercio.categoria}}</ion-label>
+          <ion-label>{{item.categoria}}</ion-label>
         </ion-chip>
 
       </ion-col>
@@ -26,6 +26,6 @@
   </ion-grid>
 
   <ion-card-content>
-    {{comercio.descripcion}}
+    {{item.descripcion}}
   </ion-card-content>
 </ion-card>

@@ -9,7 +9,7 @@ import { Comercios } from 'src/app/interfaces/interfaces';
 export class ComercioComponent implements OnInit {
 
   @Input() comercio: Comercios[] = [];
-  @Input() index: number;
+  // @Input() index: number;
 
   constructor() { }
 

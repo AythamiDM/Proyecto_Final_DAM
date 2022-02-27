@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComerciosService } from 'src/app/services/comercios.service';
-// import { IonInfiniteScroll } from '@ionic/angular';
 import { Comercios } from 'src/app/interfaces/interfaces';
 
 @Component({
@@ -8,9 +7,8 @@ import { Comercios } from 'src/app/interfaces/interfaces';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page implements OnInit {
 
-  // @ViewChild(IonInfiniteScroll, { static: true }) infiniteScroll: IonInfiniteScroll;
+export class Tab2Page implements OnInit {
 
   comercios: Comercios[] = [];
 
@@ -21,29 +19,18 @@ export class Tab2Page implements OnInit {
     this.getAllCommerce();
   }
 
-
-  private getAllCommerce() {
-    this.comService.getComercios()
-      .subscribe(respuesta => {
-        this.comercios = respuesta;
-      });
+  //El ionViewWillEnter() se dispara cada vez que entremos en la pagina
+  //de ésta forma si hay cambios en la BBDD se mostrarán
+  async ionViewWillEnter() {
+    this.getAllCommerce();
   }
 
-
-  loadData(event: any) {
-    setTimeout(() => {
-      console.log('Done');
-      event.target.complete();
-      // App logic to determine if all data is loaded
-      // and disable the infinite scroll
-      if (this.comercios.length === 10) {
-        event.target.disabled = true;
-      }
-    }, 500);
+  /**
+   * Obtenemos todos los comercios mediante nuestro servicio
+   * y los mostramos en la vista
+   */
+  private async getAllCommerce() {
+    this.comercios = await this.comService.getComercios();
   }
-
-  // toggleInfiniteScroll() {
-  //   this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
-  // }
 
 }
