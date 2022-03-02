@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ComerciosService } from 'src/app/services/comercios.service';
 import { Comercios } from 'src/app/interfaces/interfaces';
 
